@@ -43,4 +43,9 @@ public class AppController {
 
         return "main";
     }
+
+    @GetMapping("/login")
+    public String wiewLoginPage(){
+        return "login";
+    }
 }

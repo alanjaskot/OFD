@@ -10,16 +10,7 @@
 </head>
 <body>
 <div class="container text-center">
-    <h1>Witaj na stronie głównej</h1>
-    <h2>Pozostało Ci 6,66 zł</h2>
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-            Witaj <b>[[${#request.userPrincipal.principal.username}]]</b>
-            </p>
-            <input type="submit" value="żegnam Pana" />
-        </form>
-    </div>
+    <h1>Przykro mi, nie udało się zalogować. Sprawdź adres email i hasło</h1>
 
 </div>
 

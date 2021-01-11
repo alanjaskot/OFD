@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizer Finansów Domowych</title>
+    <title>Logowanie: Organizer Finansów Domowych</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container text-center">
-    <h1>Witaj na stronie głównej</h1>
-    <h2>Pozostało Ci 6,66 zł</h2>
+    <h1>witaj w panelu logowania</h1>
     <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-            Witaj <b>[[${#request.userPrincipal.principal.username}]]</b>
-            </p>
-            <input type="submit" value="żegnam Pana" />
+        <form th:action="@{/login_process}" method="post" style="max-width: 400px; margin: 0 auto;">
+            <p>Email: <input type="email" name="email" required /></p>
+            <p>Hasło: <input type="password" name="usrpass" required /></p>
+            <p><input type="submit" value="logowanie" /></p>
         </form>
     </div>
 
