@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Finansów Domowych</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <style>
+    	tr:nth-child(odd) {background: lightgray;}
+    	tr:nth-child(even) {background: white;}
+    </style>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container text-left">
+    
+    <p style="text-align: center;">Kategorie domyślne (brak możliwości modyfikacji):</p>
+    
+    <table style="margin: 0 auto; font-size: 20px; text-align: center;">
+    	<tr th:each = "cat : ${defaultCategories}">
+    		<td th:text = "${cat}">
+    	</tr>
+    </table>
+    <p></p>
+    
+    <p style="text-align: center;">Kategorie użytkownika:</p>
+    
+    <p th:if = "${userCategories.isEmpty()} == true" style="text-align: center;">Brak kategorii użytkownika</p>
+	
+	<table style="margin: 0 auto; font-size: 20px; text-align: center;" th:if = "${userCategories.isEmpty()} == false">
+		<th:block th:each = "cat : ${userCategories}">
+			<tr th:id = "'ri' + ${cat.id}">
+				<td th:text = "${cat.category}" style = "width: 75%;">
+				<td style = "width: 25%; text-align: center; font-size: 65%;"><input type="button" value="Usuń" th:id="${cat.id}" onclick="confirmDelete(this.id)"></td>
+			</tr>
+		</th:block>
+	</table>
+	<p></p>
+	
+	<form action="#" th:action = "@{/add_category}" method="post" id = "addCategory" style="text-align: center;">
+		<p>Dodaj kategorię: <input type="text" name="newCategory" id="newCategory" required="required" maxlength="45">
+		<input type="button" value="Dodaj" id="addButton"></p>
+	</form>
+	
+	<p style="text-align: center;"><a th:href="@{/input}">Powrót do dodawania</a></p>
+
+</div>
+
+<script th:inline="javascript">
+	function confirmDelete(id){
+		var url = "/delete_category?id=" + id;
+		var rowid = "ri" + id;
+		var category = document.getElementById(rowid).cells[0].innerText;
+		if(window.confirm("Czy na pewno usunąć kategorię \"" + category + "\"?\n(Usunięcie kategorii nie spowoduje usunięcia żadnych związanych z nią wpisów)")){
+			window.location.replace(url);
+		}else{
+			return;
+		}
+	}
+	document.getElementById('addButton').addEventListener('click', function () {
+    	var categories = [];
+    	/*[# th:each="cat : ${defaultCategories}"]*/
+        categories.push(/*[[${cat}]]*/);
+    	/*[/]*/
+		/*[# th:each="cat : ${userCategories}"]*/
+        categories.push(/*[[${cat.category}]]*/);
+    	/*[/]*/
+		var newCategory = document.getElementById("newCategory").value;
+		if(newCategory.length == 0){
+			window.alert("Nie wprowadzono kategorii");
+			return;
+		}
+		else if(newCategory.length > 45){
+			window.alert("Kategoria nie może być dłuższa niż 45 znaków");
+			return;
+		}
+		else if(categories.includes(newCategory)){
+			window.alert("Kategoria \"" + newCategory + "\" już istnieje");
+			return;
+		}
+		else{
+			document.getElementById("addCategory").submit();
+		}
+	});
+</script>
+
+</body>
+</html>

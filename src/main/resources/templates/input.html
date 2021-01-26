@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Finansów Domowych</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-left">
+	<form action="#" th:action = "@{/input_process}" method="post">
+		<table style="margin: 0 auto;">
+			<tr>
+				<td>Data: <input type="date" id="inputDate" name="inputDate" th:value=${today}></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">Rodzaj:</td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="income" name="type" value="inc" checked="checked">
+				<label for="income">Przychód</label></td>
+				<td><input type="radio" id="expenditure" name="type" value="exp">
+				<label for="expenditure">Wydatek</label></td>
+			</tr>
+			<tr>
+				<td>Kategoria: <select name="categories" id="categories">
+  					<option th:each="cat:${categories}" th:value="${cat}" th:text="${cat}">Overwritten</option>
+				</select></td>
+				<td><a th:href="@{/cat_manager}">Dodaj/usuń kategorie</a></td>
+			</tr>
+			<tr>
+				<td>Kwota: <input type="text" name="amount" id="amount" required="required" pattern="^[0-9]{1,9}[.,][0-9]{2}$" title = "Kwota powinna mieć postać X,XX lub X.XX (np. 100,00 lub 99,99 lub 115.20). Maksymalna kwota 999999999,99"></td>
+			</tr>
+			<tr>
+				<td>Opis: <input type="text" name="description" id="descirption" required="required" maxlength="45"></td>
+			</tr>
+			<tr><td><br></td></tr>
+		</table>
+		<p style="text-align: center;"><input type="submit" value="Dodaj"></p>
+		<p style="text-align: center;"><a th:href="@{/main}">Powrót do strony głównej</a></p>
+	</form>
+</div>
+
+</body>
+</html>

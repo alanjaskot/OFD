@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja: Organizer Finansów Domowych</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container text-center">
+    <div><H1> Rejestracja</H1></div>
+    <form th:action="@{/processSignUp}" method="post" th:object="${user}">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">E-mail: </label>
+                <div class="col-8">
+                    <input type="email" th:field="*{email}" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Hasło: </label>
+                <div class="col-8">
+                    <input type="password" th:field="*{password}" class="form-control" required minlength="6" maxlength="10"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Nazwa użytkownika: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{username}" class="form-control" required minlength="2" maxlength="20"/>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Zarejestruj</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

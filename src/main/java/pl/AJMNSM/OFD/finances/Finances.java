@@ -1,31 +1,33 @@
 package pl.AJMNSM.OFD.finances;
 
-import pl.AJMNSM.OFD.core.users.User;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "finances")
 public class Finances {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 45)
     private String email;
 
     @Column(nullable = false, length = 45)
-    private String name;
+    private String description;
 
-    @Column(nullable = false, length = 45)
-    private Double money;
+    @Column(nullable = false, precision = 11, scale = 2)
+    private BigDecimal amount;
 
-    @Column(nullable = false, length = 45)
-    private Date data;
+    @Column(nullable = false)
+    private LocalDate date;
 
     @Column(nullable = false, length = 45)
     private String category;
@@ -34,19 +36,16 @@ public class Finances {
     public void setId(Long id) {this.id = id;}
 
     public String getEmail() {return email;}
-    public void setEmail(String email) {
-        User user = new User();
-        this.email = user.getEmail();
-    }
+    public void setEmail(String email) {this.email = email;}
 
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public String getDescription() {return description;}
+    public void setDescription(String description) {this.description = description;}
 
-    public Double getMoney() {return money;}
-    public void setMoney(Double money) {this.money = money;}
+    public BigDecimal getAmount() {return amount;}
+    public void setAmount(BigDecimal amount) {this.amount = amount;}
 
-    public Date getData() {return data;}
-    public void setData(Date data) {this.data = data;}
+    public LocalDate getDate() {return date;}
+    public void setDate(LocalDate date) {this.date = date;}
 
     public String getCategory() {return category;}
     public void setCategory(String category) {this.category = category;}

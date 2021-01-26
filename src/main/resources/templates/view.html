@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Finansów Domowych</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-left">
+	<form action="#" th:action = "@{/view_redir}" method="post">
+		<table style="margin: 0 auto;">
+			<tr>
+				<td>Uwzględnij:</td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="showboth" name="viewScope" value="both" checked="checked">
+				<label for="showboth">Przychody i wydatki</label></td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="showinc" name="viewScope" value="inc">
+				<label for="showinc">Tylko przychody</label></td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="showexp" name="viewScope" value="exp">
+				<label for="showexp">Tylko wydatki</label></td>
+			</tr>
+			<tr>
+				<td>Widok:</td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="showdet" name="viewType" value="det" checked="checked">
+				<label for="showdet">Szczegółowy</label></td>
+			</tr>
+			<tr>
+				<td><input type="radio" id="showcat" name="viewType" value="cat">
+				<label for="showcat">Pogrupowany według kategorii</label></td>
+			</tr>
+			<tr>
+				<td>Okres: <select name="viewPeriod" id="viewPeriod">
+  					<option value="30">Ostatnie 30 dni</option>
+  					<option value="60">Ostatnie 60 dni</option>
+  					<option value="90">Ostatnie 90 dni</option>
+  					<option value="other">Inny okres</option>
+				</select></td>
+			</tr>
+		
+			<tr id="daterow1" style="visibility: hidden;">
+				<td>Data początkowa:</td>
+				<td>Data końcowa:</td>
+			</tr>
+			<tr id="daterow2" style="visibility: hidden;">
+				<td><input type="date" id="startDate" name="startDate" th:value="${today}"></td>
+				<td><input type="date" id="endDate" name="endDate" th:value="${today}"></td>
+			</tr>
+			
+			<tr><td><br></td></tr>
+		</table>
+		<p style="text-align: center;"><input type="submit" value="Pokaż"></p>
+		<p style="text-align: center;"><a th:href="@{/main}">Powrót do strony głównej</a></p>
+	</form>
+</div>
+
+<script>
+	document.getElementById('viewPeriod').addEventListener('change', function () {
+    	var style = this.value == 'other' ? 'visible' : 'hidden';
+    	document.getElementById('daterow1').style.visibility = style;
+    	document.getElementById('daterow2').style.visibility = style;
+	});
+</script>
+
+</body>
+</html>

@@ -10,17 +10,32 @@
 </head>
 <body>
 <div class="container text-center">
-    <h1>Witaj na stronie głównej</h1>
-    <h2>Pozostało Ci 6,66 zł</h2>
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-            Witaj <b>[[${#request.userPrincipal.principal.username}]]</b>
-            </p>
-            <input type="submit" value="żegnam Pana" />
-        </form>
-    </div>
-
+    <p>Witaj, [[${#request.userPrincipal.principal.username}]]</p>
+    <p>Statystyki z ostatnich 30 dni:</p>
+    <p>Przychody:</p>
+    <h3 style="color:green;" th:text = "${income30}"></h3>
+    <p>Wydatki:</p>
+    <h3 style="color:red;" th:text = "${expenditure30}"></h3>
+	<p th:if = "${criticalExpenditure.isEmpty()} == true">Brak istotnych wydatków w ciągu najbliższych 21 dni</p>
+	<table style="margin: 0 auto;" th:if = "${criticalExpenditure.isEmpty()} == false">
+		<tr>
+			<td>Istotne wydatki nadchodzące w ciągu najbliższych 21 dni:</td>
+		</tr>
+		<tr th:each = "cexp : ${criticalExpenditure}">
+			<td th:text = "'Kwota ' + ${cexp.amount} + ' w dniu ' + ${cexp.date} + ' (' + ${cexp.description} + ', kategoria: ' + ${cexp.category} + ')'"></td>
+		</tr>
+	</table>
+	<table style="margin: 0 auto;">
+		<tr>
+			<td><a th:href="@{/view}">Wyświetl</a></td>
+		</tr>
+		<tr>
+			<td><a th:href="@{/input}">Dodaj</a></td>
+		</tr>
+	</table>
+	<form th:action="@{/logout}" method="post">
+		<button type="submit" style = "background:none; border:none; outline:none;">Wyloguj</button>
+	</form>
 </div>
 
 </body>
