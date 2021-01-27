@@ -55,10 +55,14 @@ public class AppController {
     public String processRegistration(User user){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-
-        userRepository.save(user);
-        return "registration_succes";
+        user.setPassword(encodedPassword);        
+        if(userRepository.findByEmail(user.getEmail()) != null || userRepository.getEmailByName(user.getUsername()) != null) {
+        	return "registration_error";
+        }
+        else {
+        	userRepository.save(user);
+        	return "registration_succes";
+        }
     }
 
     @GetMapping("/main")
