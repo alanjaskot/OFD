@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/loginAndRegisterFailer.css}">
+    <link rel="icon" type="image/png" th:href="@{/img/logoSmall.png}">
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container text-center">
-    <h1>Przykro mi, nie udało się zalogować. Sprawdź adres email i hasło</h1>
-	<h1><a th:href="@{/login}">Powrót do logowania</a></h1>
+    <h1>Błąd logowania. Sprawdź adres email i hasło</h1>
 </div>
-
+<div><a th:href="@{/login}">Powrót do logowania</a></div>
 </body>
 </html>

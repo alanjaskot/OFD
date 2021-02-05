@@ -1,0 +1,230 @@
+
+body{
+    padding: 20px;
+    align-items: center;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    font-size: 22px;
+}
+
+.container{
+    box-sizing: border-box;
+    align-items: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    padding-bottom: 40px;
+    border-radius: 3px;
+}
+
+
+h1, input::-webkit-input-placeholder, button {
+    font-family: 'roboto', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+h1 {
+    height: 50px;
+    font-size: 38px;
+    text-align: center;
+    margin-top: auto;
+    background: #18aa8d;
+    color: #EBECF0;
+    line-height: 120%;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+form h1 {
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+    .container row {
+        float: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+        .container row row1 {
+            width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+.liner {
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+
+.end_of_row {
+    clear: both;
+}
+
+
+
+button {
+    border: none;
+    background: #1abc9c;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 3px;
+    padding: 6px;
+    width: 250px;
+    height: 60px;
+    color: #EBECF0;
+    margin-left: 50px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.follow {
+    width: 42px;
+    height: 42px;
+    border-radius: 50px;
+    background: #03a9f4;
+    display: inline-block;
+    margin: 50px calc(50% - 21px);
+    white-space: nowrap;
+    padding: 13px;
+    box-sizing: border-box;
+    color: white;
+    transition: all 0.2s ease;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.follow i {
+    margin-right: 20px;
+    transition: margin-right 0.2s ease;
+}
+.follow:hover {
+    width:300px;
+    transform: translateX(-50px);
+}
+.follow:hover i {
+    margin-right: 10px;
+}
+
+a {
+    font-family: 'Consolas';
+    margin-left: auto;
+    margin-right: auto;
+    size: 24px;
+    color: #000;
+    text-decoration: none;
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+  .option-input:hover {
+    background: #9faab7;
+  }
+  .option-input:checked {
+    background: #40e0d0;
+  }
+  .option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    content: '✔';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+  }
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 100;
+  }
+  .option-input.radio {
+    border-radius: 50%;
+  }
+  .option-input.radio::after {
+    border-radius: 50%;
+  }
+
+
+select {
+    border-color: 1px solid #40e0d0;
+    color: #333333;
+	font-family: 'Consolas';
+	font-size: 22px;
+}
+
+p {
+    font-family: 'Consolas';
+    size: 22px;
+    color: #333333;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+label {
+    font-family: 'Consolas';
+    size: 22px;
+    color: #333333;
+}
+
+var{
+    font-family: 'Consolas';
+    size: 22px;
+    color: #333333;
+}
+
+input {
+  background-repeat: no-repeat;
+} 
+
+/*
+input:focus, input:valid {
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+}
+input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+    color: #1abc9c;
+    font-size: 11px;
+    transform: translateY(-20px);
+    visibility: visible !important;
+} */
+  

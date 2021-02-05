@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="icon" type="image/png" href = "img/logoSmall.png">
     <style>
     	tr:nth-child(odd) {background: lightgray;}
     	tr:nth-child(even) {background: white;}
+    	button:hover {transform: none;}
     </style>
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -16,7 +18,7 @@
 
 <div class="container text-left">
     
-    <p style="text-align: center;">Kategorie domyślne (brak możliwości modyfikacji):</p>
+    <h1 style="text-align: center;">Kategorie domyślne :</h1>
     
     <table style="margin: 0 auto; font-size: 20px; text-align: center;">
     	<tr th:each = "cat : ${defaultCategories}">
@@ -25,7 +27,7 @@
     </table>
     <p></p>
     
-    <p style="text-align: center;">Kategorie użytkownika:</p>
+    <h1 style="text-align: center;">Kategorie użytkownika:</h1>
     
     <p th:if = "${userCategories.isEmpty()} == true" style="text-align: center;">Brak kategorii użytkownika</p>
 	
@@ -33,17 +35,18 @@
 		<th:block th:each = "cat : ${userCategories}">
 			<tr th:id = "'ri' + ${cat.id}">
 				<td th:text = "${cat.category}" style = "width: 75%;">
-				<td style = "width: 25%; text-align: center; font-size: 65%;"><input type="button" value="Usuń" th:id="${cat.id}" onclick="confirmDelete(this.id)"></td>
+				<td style = "width: 25%; text-align: center; font-size: 65%;"><input style="background-color: #d35f5f;" type="button" value="Usuń" th:id="${cat.id}" onclick="confirmDelete(this.id)"></td>
 			</tr>
 		</th:block>
 	</table>
 	<p></p>
 	
 	<form action="#" th:action = "@{/add_category}" method="post" id = "addCategory" style="text-align: center;">
+		<p><br></p>
 		<p>Dodaj kategorię: <input type="text" name="newCategory" id="newCategory" required="required" maxlength="45">
-		<input type="button" value="Dodaj" id="addButton"></p>
+		<button id="addButton" type="button" style="width: 20px; height: 20px; background-color: Transparent; border: none; box-shadow: none; margin-left: 0px; outline: none;"><img src="img/add.svg" style="width: 20px; height: 20px;" /></button></p>
 	</form>
-	
+	<p><br></p>
 	<p style="text-align: center;"><a th:href="@{/input}">Powrót do dodawania</a></p>
 
 </div>

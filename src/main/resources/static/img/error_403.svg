@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 512 512"
+   style="enable-background:new 0 0 512 512;"
+   xml:space="preserve"
+   id="svg14"
+   sodipodi:docname="error_403.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata20"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+   id="defs18"><rect
+     x="345.39683"
+     y="352.50794"
+     width="256.50794"
+     height="262.09524"
+     id="rect864" /><rect
+     x="99.047619"
+     y="129.01587"
+     width="323.04762"
+     height="251.93651"
+     id="rect858" /></defs><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="3840"
+   inkscape:window-height="2066"
+   id="namedview16"
+   showgrid="true"
+   inkscape:zoom="1.96875"
+   inkscape:cx="303.23139"
+   inkscape:cy="148.08276"
+   inkscape:window-x="-11"
+   inkscape:window-y="-11"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg14"
+   inkscape:document-rotation="0"><inkscape:grid
+     type="xygrid"
+     id="grid884" /></sodipodi:namedview>
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:none;stroke:#FF0000;stroke-width:15;stroke-miterlimit:10;}
+	.st1{fill:#FF0000;}
+	.st2{fill:none;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'ArialMT';}
+	.st5{font-size:150px;}
+</style>
+<g
+   id="Layer_1">
+	<polygon
+   class="st0"
+   points="351.4542,25.2633 160.5458,25.2633 25.5532,160.2559 25.5532,351.1643 160.5458,486.1569    351.4542,486.1569 486.4468,351.1643 486.4468,160.2559  "
+   id="polygon4" />
+	<polygon
+   class="st1"
+   points="344.6776,41.117 166.6628,41.117 40.7872,166.9926 40.7872,345.0074 166.6628,470.883    344.6776,470.883 470.5532,345.0074 470.5532,166.9926  "
+   id="polygon6" />
+</g>
+
+<text
+   xml:space="preserve"
+   id="text856"
+   style="font-style:normal;font-weight:normal;font-size:52.4209px;line-height:1;font-family:sans-serif;white-space:pre;shape-inside:url(#rect858);fill:#000000;fill-opacity:1;stroke:none;"
+   transform="matrix(1.4905636,0,0,1,-91.4902,38.541552)"><tspan
+     x="99.046875"
+     y="169.46249"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#ffffff;fill-opacity:1">ODMOWA</tspan><tspan
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:52.4209px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1"> </tspan></tspan></text><text
+   xml:space="preserve"
+   id="text862"
+   style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;white-space:pre;shape-inside:url(#rect864);" /><text
+   xml:space="preserve"
+   style="font-style:normal;font-weight:normal;font-size:64px;line-height:1;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+   x="85.389664"
+   y="344.99188"
+   id="text882"><tspan
+     sodipodi:role="line"
+     id="tspan880"
+     x="85.389664"
+     y="344.99188"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:64px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#ffffff;fill-opacity:1">DOSTĘPU</tspan></text></svg>

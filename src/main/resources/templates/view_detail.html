@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/view_detail.css}"/>
+	<link rel="icon" type="image/png" href = "img/logoSmall.png">
     <style>
-    	tr:nth-child(4n+1) {background: lightgray;}
-    	tr:nth-child(4n+2) {background: lightgray;}
+    	tr:nth-child(4n+1) {background: lightgrey;}
+    	tr:nth-child(4n+2) {background: lightgrey;}
     	tr:nth-child(4n+3) {background: white;}
     	tr:nth-child(4n+4) {background: white;}
     </style>
@@ -15,10 +16,11 @@
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container">
 
-<div class="container text-left">
-    
-    <p style="text-align: center;">Widok szczegółowy</p>
+	
+	
+    <h1 style="text-align: center;">Widok szczegółowy</h1>
     
     <p th:text = "'Okres od ' + ${startDate} + ' do ' + ${endDate}" style="text-align: center;"></p>
     
@@ -30,7 +32,7 @@
     
     <p th:if = "${data.isEmpty()} == true" style="text-align: center;">Brak danych z okresu</p>
 	
-	<table style="margin: 0 auto; font-size: 20px;" th:if = "${data.isEmpty()} == false">
+	<table style="margin: 0 auto; font-size: 20px; border: 0px;" th:if = "${data.isEmpty()} == false">
 		
 		<tr>
 			<th:block th:if = "${sortParam} == 'amount'">
@@ -67,7 +69,7 @@
 				<td th:if = "${entry.amount} >= 0" th:text = "${entry.amount}" style = "color:green; width: 25%;"></td>
 				<td th:text = "${entry.date}" style = "width: 25%;"></td>
 				<td th:text = "${entry.description}" style = "width: 40%;"></td>
-				<td style = "width: 10%; text-align: center; font-size: 65%;" rowspan = "2"><input type="button" value="Usuń" th:id="${entry.id}" onclick="confirmDelete(this.id)"></td>
+				<td style = "width: 10%; text-align: center; font-size: 65%;" rowspan = "2"><input type="button" value="Usuń" th:id="${entry.id}" onclick="confirmDelete(this.id)" style="color: #EBECF0; background-color: #d35f5f;"></td>
 			</tr>
 			<tr th:id = "'r2i' + ${entry.id}">
 				<td th:text = ${entry.category} style = "font-size: 50%;" colspan = "4"></td>
@@ -77,26 +79,39 @@
 	</table>
 	<p></p>
 	
-	<p style="text-align: center;">Podsumowanie okresu:</p>
-	<table style="margin: 0 auto; font-size: 20px;">
+	<p style="text-align: center; color: #333333; font-family: 'Consolas'; size: 24px">Podsumowanie okresu:</p>
+	<table style="margin: 0 auto; font-size: 20px; width: 400px;">
 		<tr style = "background: white;">
-			<td style = "width: 50%;">Przychody ogółem</td>
-			<td style = "color: green; width: 50%; text-align:right;" th:text = "${totalIncome}"></td>
+			<td style = "width: 50%; font-family: 'Consolas';">Przychody</td>
+			<td style = "color: #18aa8d; width: 50%; text-align:right;" th:text = "${totalIncome}"></td>
 		</tr>
 		<tr style = "background: white;">
-			<td style = "width: 50%;">Wydatki ogółem</td>
-			<td style = "color: red; width: 50%; text-align:right;" th:text = "${totalExpenditure}"></td>
+			<td style = "width: 50%; font-family: 'Consolas';">Wydatki</td>
+			<td style = "color:  #d35f5f; width: 50%; text-align:right;" th:text = "${totalExpenditure}"></td>
 		</tr>
 		<tr style = "background: white;">
-			<td style = "width: 50%;">Saldo okresu</td>
+			<td style = "width: 50%; font-family: 'Consolas';">Saldo</td>
 			<td style = "width: 50%; text-align:right;" th:text = "${totalBalance}"></td>
 		</tr>
 	</table>
-	
-	<p style="text-align: center;"><a th:href="@{/view}">Zmień widok</a></p>
-	<p style="text-align: center;"><a th:href="@{/main}">Powrót do strony głównej</a></p>
 
+	<button onclick="toView()" style="
+	margin-top: 20px;
+	border: none;
+	background: #1abc9c;
+	cursor: pointer;
+	font-size: 24px;
+	border-radius: 3px;
+	padding: 6px;
+	width: 200px;
+	height: 60px;
+	color: #EBECF0;
+	margin-left: 50px;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);">ZMIEŃ WIDOK</button>
 </div>
+	<p style="text-align: center;"><a th:href="@{/main}" style="font-family: 'Consolas'; size: 24px;">Powrót do strony głównej</a></p>
+
+
 
 <script th:inline="javascript">
 	function confirmDelete(id){
@@ -133,6 +148,10 @@
 		window.location.replace(url);
 	}
 </script>
-
+<script>
+	function toView(){
+		window.location.replace("/view");
+		}
+</script>
 </body>
 </html>

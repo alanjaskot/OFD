@@ -4,52 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href = "css/main.css"/>
+	<link rel="icon" type="image/png" href="img/logoSmall.png">
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<h1>Szczegóły</h1>
 <div class="container text-left">
 	<form action="#" th:action = "@{/view_redir}" method="post">
 		<table style="margin: 0 auto;">
 			<tr>
-				<td>Uwzględnij:</td>
+				<td><h2 style="font-family: 'Consolas'; color: #333333;">Uwzględnij</h2></td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="showboth" name="viewScope" value="both" checked="checked">
-				<label for="showboth">Przychody i wydatki</label></td>
+				<td><input type="radio" class="option-input radio" id="showboth" name="viewScope" value="both" checked="checked">
+				<label for="showboth" style="font-family: 'Consolas'; color: #333333;">Przychody i wydatki</label></td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="showinc" name="viewScope" value="inc">
-				<label for="showinc">Tylko przychody</label></td>
+				<td><input type="radio" class="option-input radio" id="showinc" name="viewScope" value="inc">
+				<label for="showinc" style="font-family: 'Consolas'; color: #333333;">Przychody</label></td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="showexp" name="viewScope" value="exp">
-				<label for="showexp">Tylko wydatki</label></td>
+				<td><input type="radio" class="option-input radio" id="showexp" name="viewScope" value="exp">
+				<label for="showexp" style="font-family: 'Consolas'; color: #333333">Wydatki</label></td>
 			</tr>
 			<tr>
-				<td>Widok:</td>
+				<td><br><br><h2 style="font-family: 'Consolas'; color: #333333;">Widok</h2></td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="showdet" name="viewType" value="det" checked="checked">
-				<label for="showdet">Szczegółowy</label></td>
+				<td><input type="radio" class="option-input radio" id="showdet" name="viewType" value="det" checked="checked">
+				<label for="showdet" style="font-family: 'Consolas'; color: #333333;">Szczegółowy</label></td>
 			</tr>
 			<tr>
-				<td><input type="radio" id="showcat" name="viewType" value="cat">
-				<label for="showcat">Pogrupowany według kategorii</label></td>
+				<td><input type="radio" class="option-input radio" id="showcat" name="viewType" value="cat">
+				<label for="showcat" style="font-family: 'Consolas'; color: #333333;">Pogrupowany według kategorii</label></td>
 			</tr>
 			<tr>
-				<td>Okres: <select name="viewPeriod" id="viewPeriod">
-  					<option value="30">Ostatnie 30 dni</option>
-  					<option value="60">Ostatnie 60 dni</option>
-  					<option value="90">Ostatnie 90 dni</option>
-  					<option value="other">Inny okres</option>
-				</select></td>
+				<td><br><br><h2 style="font-family: 'Consolas'; color: #333333;">Okres</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<select name="viewPeriod" id="viewPeriod">
+						<option value="30">Ostatnie 30 dni</option>
+						<option value="60">Ostatnie 60 dni</option>
+						<option value="90">Ostatnie 90 dni</option>
+						<option value="other">Inny okres</option>
+					</select>
+				</td>
 			</tr>
 		
 			<tr id="daterow1" style="visibility: hidden;">
-				<td>Data początkowa:</td>
-				<td>Data końcowa:</td>
+				<td style="font-family: 'Consolas'; color: #333333;">Data początkowa:</td>
+				<td style="font-family: 'Consolas'; color: #333333;">Data końcowa:</td>
 			</tr>
 			<tr id="daterow2" style="visibility: hidden;">
 				<td><input type="date" id="startDate" name="startDate" th:value="${today}"></td>
@@ -58,8 +66,10 @@
 			
 			<tr><td><br></td></tr>
 		</table>
-		<p style="text-align: center;"><input type="submit" value="Pokaż"></p>
-		<p style="text-align: center;"><a th:href="@{/main}">Powrót do strony głównej</a></p>
+			<button type="submit">Pokaż</button>
+		</div>
+
+		<p style="text-align: center;"><a th:href="@{/main}"><br>Powrót do strony głównej</a></p>
 	</form>
 </div>
 

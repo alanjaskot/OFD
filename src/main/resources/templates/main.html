@@ -1,42 +1,79 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href = "css/main.css"/>
+	<link rel="icon" type="image/png" href="img/logoSmall.png">
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container text-center">
-    <p>Witaj, [[${#request.userPrincipal.principal.username}]]</p>
-    <p>Statystyki z ostatnich 30 dni:</p>
-    <p>Przychody:</p>
-    <h3 style="color:green;" th:text = "${income30}"></h3>
-    <p>Wydatki:</p>
-    <h3 style="color:red;" th:text = "${expenditure30}"></h3>
-	<p th:if = "${criticalExpenditure.isEmpty()} == true">Brak istotnych wydatków w ciągu najbliższych 21 dni</p>
-	<table style="margin: 0 auto;" th:if = "${criticalExpenditure.isEmpty()} == false">
-		<tr>
-			<td>Istotne wydatki nadchodzące w ciągu najbliższych 21 dni:</td>
-		</tr>
-		<tr th:each = "cexp : ${criticalExpenditure}">
-			<td th:text = "'Kwota ' + ${cexp.amount} + ' w dniu ' + ${cexp.date} + ' (' + ${cexp.description} + ', kategoria: ' + ${cexp.category} + ')'"></td>
-		</tr>
-	</table>
-	<table style="margin: 0 auto;">
-		<tr>
-			<td><a th:href="@{/view}">Wyświetl</a></td>
-		</tr>
-		<tr>
-			<td><a th:href="@{/input}">Dodaj</a></td>
-		</tr>
-	</table>
-	<form th:action="@{/logout}" method="post">
-		<button type="submit" style = "background:none; border:none; outline:none;">Wyloguj</button>
-	</form>
-</div>
+	<h1>Witaj, [[${#request.userPrincipal.principal.username}]]</h1>
+	<div class="container">
+		<div class="row" style="margin: 20px 20px; ">
+			<table>
+				<tr>
+					<td style="color: #18aa8d;">przychody</td>
+					<td style="color: #d35f5f;">wydatki</td>
+				</tr>
+				<tr>
+					<td style="margin-top: auto; margin-bottom: auto; width: 298px;">
+						<img src="img/arrow_up.svg" alt="Przychody">
+						<var style="color: #18aa8d;" th:text = "${income30}"></var>
+					</td>
+					<td style="margin-top: auto; margin-bottom: auto; width: 298px;">
+						<img src="img/arrow_down.svg" alt="Wydatki">
+						<var style="color: #d35f5f;" th:text = "${expenditure30}"></var>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="liner"></div>
+		<div class="row2">
+			<p th:if = "${criticalExpenditure.isEmpty()} == true">Brak większych wydatków w najbliższym czasie<br><br></p>	
+			<table style="margin: 0 auto;" th:if = "${criticalExpenditure.isEmpty()} == false">
+				<tr>
+					<td>Uwaga, zbliżają się większe wydatki:</td>
+				</tr>
+			</table>
+			<table style="margin: 0 auto;" th:if = "${criticalExpenditure.isEmpty()} == false">
+				<tr>
+					<td>kwota</td>
+					<td>data</td>
+					<td>nazwa</td>
+					<td>kategoria</td>
+				</tr>
+				<tr th:each = "cexp : ${criticalExpenditure}">
+					<td th:text = "${cexp.amount}" style="margin-bottom: 10px; color: #d35f5f; size:16px; align-items: center; width: 140px; font-family: 'Consolas';" ></td>
+					<td th:text= "${cexp.date}" style="margin-bottom: 10px; color:#333333; size: 14px; align-items: center; width: 140px; font-family: 'Consolas'; font-style: italic; "></td>
+					<td th:text="${cexp.description}" style="margin-bottom: 10px; color:#333333; size: 14px; align-items: center; width: 140px; font-family: 'Consolas';"></td>
+					<td th:text="${cexp.category}" style="margin-bottom: 10px; color:#333333; size: 12px; align-items: center; width: 140px; font-family: 'Consolas';"></td>
+				</tr>
+			</table>
+		</div>
+			<div><br><br></div>
+			<div style="float:left; align-items: center;">
+					<button onclick="toView()" value="SZCZEGÓŁY" style="color:#EBECF0;">SZCZEGÓŁY</button><br><br>
+					<button onclick="toInput()" type="submit" value="DODAJ" style="color: #EBECF0">DODAJ</button><br><br>
+		</div>
+		<div style="clear: both; align-items: center;">
+		<form th:action="@{/logout}" method="post">
+			<button type="submit" style="background-color: #d35f5f">Wyloguj</button>
+		</form>
+		</div>
+	</div>
+	<script>
+		function toView(){
+		window.location.replace("/view");
+		}
+	</script>
+	<script>
+		function toInput(){
+		window.location.replace("/input");
+		}
+	</script>
 
 </body>
 </html>

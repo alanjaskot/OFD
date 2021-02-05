@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Finansów Domowych</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="icon" type="image/png" href = "img/logoSmall.png">
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container text-center">
-	<p th:text="'Dodano wpis: ' + ${finances.date} + ', kwota: ' + ${finances.amount} + ' (' + ${finances.description} + ', kategoria: ' + ${finances.category} + ')'"></p>
-	<p><a th:href = "@{/delete_entry(id=${finances.id})}">Cofnij dodanie</a></p>
-	<p><a th:href="@{/input}">Dodaj kolejny</a></p>
-	<p><a th:href="@{/main}">Powrót do strony głównej</a></p>
-</div>
-
+<div class="container">
+    <h1>Dodano wpis</h1>
+    <p style="margin-left: 30px;">
+        <label>Data:&nbsp;&nbsp;</label><var th:text="${finances.date}"></var>
+    </p>
+    <p style="margin-left: 30px;">
+        <label>Kwota:&nbsp;&nbsp;</label><var th:text="${finances.amount}"></var>
+    </p>
+    <p style="margin-left: 30px;">
+        <label>Nazwa:&nbsp;&nbsp;</label><var th:text="${finances.description}"></var>
+    </p>
+    <p style="margin-left: 30px;">
+        <label>Kategoria:&nbsp;&nbsp;</label><var th:text="${finances.category}"></var>
+    </p>
+    <p><br></p>
+	<a th:href = "@{/delete_entry(id=${finances.id})}" style="float:left; margin-left: 30px;"><img src="img/arrow_back.svg" alt="Cofnij dodanie" height="50" width="50"/></a></p>
+	<a th:href="@{/input}" style="margin-left: 400px;"><img src="img/add.svg" alt="Dodaj kolejny"></a></div>
+    </div>
+    <p><br></p>
+    <p><a th:href="@{/main}">Powrót do strony głównej</a></p>
 </body>
 </html>

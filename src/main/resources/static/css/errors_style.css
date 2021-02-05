@@ -1,0 +1,15 @@
+body {
+    margin-top: 100px;
+    font-family: 'Console';
+    margin-bottom: auto;
+    text-align: center;
+    font-size: 48px;
+    color: #333333;
+    background-color: lightgray;
+}
+
+.container{
+    font-size: 36px;
+    color: #333333;
+    text-shadow: 1px;
+}
